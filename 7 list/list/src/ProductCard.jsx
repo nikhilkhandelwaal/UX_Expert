@@ -2,7 +2,6 @@ import React from 'react'
 
 
 export default function ProductCard(props) {
-    console.log(props);
     return (
         <div className='border w-[20%] p-3'>
             <div>
