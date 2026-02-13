@@ -1,6 +1,16 @@
 import React from 'react'
 
-export default function Table(props) {
+export default function Table({ userData, setUserData }) {
+
+  const oldUserData = [...userData];
+
+  const deleteRow = (index) => {
+    const filterData = oldUserData.filter((v, i) => {
+      return index != i;
+    })
+    setUserData(filterData);
+  }
+
 
   return (
     <div className='col-span-2'>
@@ -28,7 +38,7 @@ export default function Table(props) {
           </thead>
           <tbody className="divide-y">
             {
-              props.userData.map(
+              userData.map(
                 (value, index) => {
                   return (
                     <tr key={index}>
@@ -48,7 +58,7 @@ export default function Table(props) {
                       </td>
                       <td className="px-4 py-2">{value.age}</td>
                       <td className="px-4 py-2 text-center">
-                        <button className="text-red-600 hover:text-red-800 font-medium cursor-pointer">
+                        <button onClick={() => deleteRow(index)} className="text-red-600 hover:text-red-800 font-medium cursor-pointer">
                           Delete
                         </button>
                       </td>
