@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function Products() {
 
@@ -31,8 +32,6 @@ export default function Products() {
 
 function ProductCard({ value }) {
 
-    console.log(value);
-
     return (
 
         < div className="product-card bg-white rounded-xl shadow-md hover:shadow-lg transition duration-300 overflow-hidden" >
@@ -58,9 +57,11 @@ function ProductCard({ value }) {
                     </p>
                 </div >
                 {/* Title */}
-                < h3 className="text-lg font-semibold text-[#1e2939] hover:text-black cursor-pointer line-clamp-2" >
-                    {value.title}
-                </h3 >
+                <Link to={`/productdetail/${value.id}`}>
+                    < h3 className="text-lg font-semibold text-[#1e2939] hover:text-black cursor-pointer line-clamp-2" >
+                        {value.title}
+                    </h3 >
+                </Link>
                 {/* Rating */}
                 < p className="text-sm text-yellow-500" >⭐ {value.rating}</p >
                 {/* Price */}

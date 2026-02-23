@@ -5,6 +5,7 @@ import Contact from './Pages/Contact'
 import Shop from './Pages/Shop'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './Pages/Layout'
+import ProductDetail from './Pages/ProductDetail'
 
 
 export default function App() {
@@ -30,6 +31,10 @@ export default function App() {
           {
             path: '/shop',
             element: <Shop />
+          },
+          {
+            path: '/productdetail/:productid',
+            element: <ProductDetail />
           }
         ]
       }
