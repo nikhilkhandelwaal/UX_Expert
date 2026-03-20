@@ -6,6 +6,7 @@ import Shop from './Pages/Shop'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Layout from './Pages/Layout'
 import ProductDetail from './Pages/ProductDetail'
+import MainContext from './Context/MainContext'
 
 
 export default function App() {
@@ -43,6 +44,8 @@ export default function App() {
 
 
   return (
-    <RouterProvider router={routes} />
+    <MainContext>
+      <RouterProvider router={routes} />
+    </MainContext>
   )
 }

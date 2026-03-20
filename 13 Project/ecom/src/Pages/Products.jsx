@@ -1,6 +1,7 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { Context } from '../Context/MainContext';
 
 export default function Products() {
 
@@ -31,6 +32,8 @@ export default function Products() {
 }
 
 function ProductCard({ value }) {
+
+    const { cart, setCart } = useContext(Context);
 
     return (
 
@@ -71,7 +74,7 @@ function ProductCard({ value }) {
                     <button className="flex-1 border border-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-100 transition cursor-pointer">
                         Quick View
                     </button>
-                    <button className="flex-1 bg-[#1e2939] text-white py-2 rounded-lg hover:bg-gray-800 transition cursor-pointer">
+                    <button onClick={() => setCart(cart + 1)} className="flex-1 bg-[#1e2939] text-white py-2 rounded-lg hover:bg-gray-800 transition cursor-pointer">
                         Add to Cart
                     </button>
                 </div >
