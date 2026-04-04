@@ -1,20 +1,21 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { decrement, increment } from './redux/reducer/counterSlice';
 
 export default function App() {
-  // const [count, setCount] = useState(0);
 
   const count = useSelector((state) => state.counter.value);
-
-
+  const dispatch = useDispatch();
 
   return (
     <>
       <div className='main'>
-        <button >-</button>
+        <button onClick={() => dispatch(decrement())}>-</button>
         <h1>{count}</h1>
-        <button >+</button>
+        <button onClick={() => dispatch(increment())}>+</button>
       </div>
     </>
   )
 }
+// useSelector
+// useDispatch
